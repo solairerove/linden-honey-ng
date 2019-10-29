@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 import {Song} from '../song';
 import {SongService} from '../song.service';
 
@@ -9,15 +10,12 @@ import {SongService} from '../song.service';
 })
 export class SongDetailsComponent implements OnInit {
 
-  private song: Song;
+  private song: Observable<Song>;
 
   constructor(private songService: SongService) {
   }
 
   ngOnInit() {
-    this.songService.defaultSong().subscribe(song => {
-      this.song = song;
-    });
+    this.song = this.songService.defaultSong();
   }
-
 }
