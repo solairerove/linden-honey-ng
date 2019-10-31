@@ -1,0 +1,24 @@
+<nb-card>
+  <nb-card-body>
+    <input
+      id="songs-search-field" type="text" nbInput fullWidth
+      placeholder="Куда спешишь, товарищ?"
+      [formControl]="inputItemFormControl"
+      (ngModelChange)="onSearchFieldChange($event)">
+    <label for="songs-search-field"></label>
+  </nb-card-body>
+</nb-card>
+
+<nb-card size="medium">
+  <nb-card-header>
+    Епты
+  </nb-card-header>
+  <nb-card-body>
+    <nb-list>
+      <nb-list-item *ngFor="let songToName of songToNames">
+        {{ songToName.title }}
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
+
+</nb-card>
